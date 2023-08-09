@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 
 class map extends StatefulWidget {
   const map({super.key});
@@ -12,10 +13,13 @@ class _mapState extends State<map> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('PetsFinder'),
+        body: InAppWebView(
+          initialUrlRequest: URLRequest(
+            url: Uri.parse('https://youtube.com'),
+          ),
+          initialOptions: InAppWebViewGroupOptions(
+              android: AndroidInAppWebViewOptions(useHybridComposition: true)),
         ),
-        body: const Text("지도밑 버튼"),
       ),
     );
   }
