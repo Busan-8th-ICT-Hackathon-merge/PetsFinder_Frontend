@@ -13,13 +13,7 @@ class _mapState extends State<map> {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: const Text('Infantory'),
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
+          title: const Text('PetsFinder'),
         ),
         body: const Text("지도밑 버튼"),
       ),

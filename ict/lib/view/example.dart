@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Landing extends StatefulWidget {
-  const Landing({super.key});
+class example extends StatefulWidget {
+  const example({super.key});
 
   @override
-  State<Landing> createState() => LandingState();
+  State<example> createState() => _exampleState();
 }
 
-class LandingState extends State<Landing> {
+class _exampleState extends State<example> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -15,7 +15,7 @@ class LandingState extends State<Landing> {
         appBar: AppBar(
           title: const Text('PetsFinder'),
         ),
-        body: const Text("첫화면"),
+        body: const Text("예시"),
       ),
     );
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ict/view/Landing.dart';
+import 'package:ict/view/example.dart';
 import 'package:ict/view/map.dart';
 
 class home extends StatefulWidget {
@@ -43,6 +44,14 @@ class _homeState extends State<home> {
               ),
               label: "map",
             ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.api,
+                size: 30,
+                color: curIndex == 2 ? Colors.blue : Colors.black,
+              ),
+              label: "label",
+            ),
           ],
         ),
       ),
@@ -58,6 +67,9 @@ Widget getPage(int curIndex) {
       break;
     case 1:
       page = const map();
+      break;
+    case 2:
+      page = const example();
       break;
   }
   return page;
