@@ -69,7 +69,7 @@ Widget getPage(int curIndex) {
       page = const map();
       break;
     case 2:
-      page = const example();
+      page = const Example();
       break;
   }
   return page;

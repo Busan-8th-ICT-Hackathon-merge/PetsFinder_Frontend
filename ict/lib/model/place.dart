@@ -1,7 +1,7 @@
 class Place {
   String? id;
   String? name;
-  List<int>? locate;
+  List<double>? locate;
   String? address;
   String? category;
   String? phoneNumber;
@@ -11,12 +11,12 @@ class Place {
   Place.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
-    locate = json['locate'];
+    locate = List.from(json['locate']);
     address = json['address'];
     category = json['category'];
     phoneNumber = json['phoneNumber'];
     homepageUrl = json['homepageUrl'];
-    operatingHours = json['operatingHours'];
+    operatingHours = List.from(json['operatingHours']);
   }
 
   Map<String, dynamic> toJson() {
