@@ -3,18 +3,18 @@ import 'package:ict/view/home.dart';
 
 void main() {
   runApp(const MaterialApp(
-    home: Iot(),
+    home: Ict(),
   ));
 }
 
-class Iot extends StatefulWidget {
-  const Iot({super.key});
+class Ict extends StatefulWidget {
+  const Ict({super.key});
 
   @override
-  State<Iot> createState() => _IotState();
+  State<Ict> createState() => _IctState();
 }
 
-class _IotState extends State<Iot> {
+class _IctState extends State<Ict> {
   @override
   Widget build(BuildContext context) {
     return const home();

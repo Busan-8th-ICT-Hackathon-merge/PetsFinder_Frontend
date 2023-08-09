@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class streaming extends StatefulWidget {
-  const streaming({super.key});
+class map extends StatefulWidget {
+  const map({super.key});
 
   @override
-  State<streaming> createState() => _streamingState();
+  State<map> createState() => _mapState();
 }
 
-class _streamingState extends State<streaming> {
+class _mapState extends State<map> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,7 +21,7 @@ class _streamingState extends State<streaming> {
             },
           ),
         ),
-        body: const Text("스트리밍보여줌"),
+        body: const Text("지도밑 버튼"),
       ),
     );
   }

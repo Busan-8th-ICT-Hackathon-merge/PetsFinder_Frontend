@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ict/view/analysis.dart';
-import 'package:ict/view/data.dart';
-import 'package:ict/view/streaming.dart';
+import 'package:ict/view/Landing.dart';
+import 'package:ict/view/map.dart';
 
 class home extends StatefulWidget {
   const home({super.key});
@@ -11,48 +10,55 @@ class home extends StatefulWidget {
 }
 
 class _homeState extends State<home> {
+  int curIndex = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Infantory'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const analysis()),
-                  );
-                },
-                child: const Text('analysis'),
+        body: getPage(curIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            setState(
+              () {
+                curIndex = index;
+              },
+            );
+          },
+          showSelectedLabels: false,
+          showUnselectedLabels: false,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 30,
+                color: curIndex == 0 ? Colors.blue : Colors.black,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const streaming()),
-                  );
-                },
-                child: const Text('streaming'),
+              label: "Landing",
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(
+                Icons.home,
+                size: 30,
+                color: curIndex == 1 ? Colors.blue : Colors.black,
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const data()),
-                  );
-                },
-                child: const Text('어제자 데이터 분석'),
-              ),
-            ],
-          ),
+              label: "map",
+            ),
+          ],
         ),
       ),
     );
   }
+}
+
+Widget getPage(int curIndex) {
+  late Widget page;
+  switch (curIndex) {
+    case 0:
+      page = const Landing();
+      break;
+    case 1:
+      page = const map();
+      break;
+  }
+  return page;
 }
