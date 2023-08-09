@@ -1,20 +1,17 @@
 import 'dart:convert';
-
-import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 
 import '../model/place.dart';
 
 class PlaceRepository {
-  static const String url =
-      "http://101.101.217.144:3001/path?area=%ED%95%B4%EC%9A%B4%EB%8C%80%EA%B5%AC";
+  static const String url = "http://101.101.217.144:3001/path";
 
   final Client _client;
 
   PlaceRepository(this._client);
 
-  Future<List<Place>> fetchData() async {
-    Uri uri = Uri.parse(url);
+  Future<List<Place>> fetchData(String area) async {
+    Uri uri = Uri.parse("$url?area=$area");
 
     Response response = await _client.get(uri);
 

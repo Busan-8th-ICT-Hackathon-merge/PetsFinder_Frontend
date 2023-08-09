@@ -18,7 +18,7 @@ class _ExampleState extends State<Example> {
     super.initState();
 
     Future.microtask(() {
-      context.read<PlaceViewModel>().getData();
+      context.read<PlaceViewModel>().getData("진구");
     });
   }
 

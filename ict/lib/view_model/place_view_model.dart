@@ -10,8 +10,8 @@ class PlaceViewModel extends ChangeNotifier {
 
   List<Place> data = [];
 
-  Future<void> getData() async {
-    List<Place> fetch = await placeRepository.fetchData();
+  Future<void> getData(String area) async {
+    List<Place> fetch = await placeRepository.fetchData(area);
 
     data = fetch;
 
