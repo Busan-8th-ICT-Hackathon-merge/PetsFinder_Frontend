@@ -37,7 +37,7 @@ class _homeState extends State<home> {
             ),
             BottomNavigationBarItem(
               icon: Icon(
-                Icons.home,
+                Icons.map,
                 size: 30,
                 color: curIndex == 1 ? Colors.blue : Colors.black,
               ),
