@@ -57,12 +57,12 @@ class _AddAnimalScreenState extends State<AddAnimalScreen> {
             children: [
               TextField(
                 controller: nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(labelText: '이름'),
               ),
               SizedBox(height: 10),
               TextField(
                 controller: typeController,
-                decoration: InputDecoration(labelText: 'Type'),
+                decoration: InputDecoration(labelText: '종류'),
               ),
               SizedBox(height: 20),
               ElevatedButton(
@@ -86,12 +86,12 @@ class _AddAnimalScreenState extends State<AddAnimalScreen> {
                   : Container(),
               TextField(
                 controller: ageController,
-                decoration: InputDecoration(labelText: 'Age'),
+                decoration: InputDecoration(labelText: '나이'),
               ),
               SizedBox(height: 10),
               TextField(
                 controller: weightController,
-                decoration: InputDecoration(labelText: 'Weight'),
+                decoration: InputDecoration(labelText: '몸무게(kg)'),
               ),
               SizedBox(height: 16.0),
               ElevatedButton(
@@ -106,14 +106,13 @@ class _AddAnimalScreenState extends State<AddAnimalScreen> {
                   if (name.isNotEmpty &&
                       type.isNotEmpty &&
                       age > 0 &&
-                      weight > 0 &&
-                      selectedImageUrl.isNotEmpty) {
+                      weight > 0) {
                     Animal newAnimal = Animal(
                       name: name,
                       type: type,
                       age: age,
                       weight: weight,
-                      imageUrl: selectedImageUrl,
+                      imageUrl: "assets/dog2.jpg",
                     );
                     Navigator.pop(
                         context, newAnimal); // Return the newAnimal to Landing

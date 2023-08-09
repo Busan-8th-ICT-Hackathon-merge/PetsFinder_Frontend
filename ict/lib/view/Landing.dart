@@ -30,18 +30,7 @@ class LandingState extends State<Landing> {
         age: 2,
         weight: 4.5,
         imageUrl: "assets/cat_image_url.jpg"),
-    Animal(
-        name: "Dog",
-        type: "Dog",
-        age: 3,
-        weight: 8.2,
-        imageUrl: "assets/dog1.jpg"),
-    Animal(
-        name: "Rabbit",
-        type: "Rabbit",
-        age: 1,
-        weight: 2.0,
-        imageUrl: "assets/rabbit_image_url.jpg"),
+
     // Add more animals as needed
   ];
 
@@ -56,26 +45,6 @@ class LandingState extends State<Landing> {
         animals.add(newAnimal);
       });
     }
-  }
-
-  Animal maxWeightAnimal() {
-    if (animals.isEmpty) {
-      return Animal(
-        name: "No animals",
-        type: "N/A",
-        age: 0,
-        weight: 0.0,
-        imageUrl: "",
-      );
-    }
-
-    Animal maxWeight = animals[0];
-    for (Animal animal in animals) {
-      if (animal.weight > maxWeight.weight) {
-        maxWeight = animal;
-      }
-    }
-    return maxWeight;
   }
 
   @override
@@ -168,45 +137,6 @@ class LandingState extends State<Landing> {
                   ),
                 );
               },
-            ),
-          ),
-          SizedBox(height: 16),
-          Text(
-            "Max Weight Animal:",
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          SizedBox(height: 8),
-          Container(
-            padding: EdgeInsets.all(10),
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(10),
-              boxShadow: [
-                BoxShadow(
-                  color: Colors.grey.withOpacity(0.2),
-                  spreadRadius: 2,
-                  blurRadius: 5,
-                  offset: Offset(0, 3),
-                ),
-              ],
-            ),
-            child: Column(
-              children: [
-                Image.asset(
-                  maxWeightAnimal().imageUrl,
-                  width: 100,
-                  height: 100,
-                ),
-                SizedBox(height: 10),
-                Text(
-                  "${maxWeightAnimal().name} type: ${maxWeightAnimal().type}",
-                  style: TextStyle(fontSize: 16),
-                ),
-                Text(
-                  "Age: ${maxWeightAnimal().age}, Weight: ${maxWeightAnimal().weight} kg",
-                  style: TextStyle(fontSize: 14),
-                ),
-              ],
             ),
           ),
         ],
