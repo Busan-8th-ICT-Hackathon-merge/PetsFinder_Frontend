@@ -17,60 +17,33 @@ class _mapState extends State<map> {
   @override
   Widget build(BuildContext context) {
     String url = 'http://101.101.217.144:3002/';
-    return MaterialApp(
-      home: Scaffold(
-          body: SizedBox(
-        height: MediaQuery.of(context).size.height,
-        width: MediaQuery.of(context).size.width,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            _button(
-              context: context,
-              title: 'In App Webview',
-              onTap: () async {
-                if (await canLaunchUrlString(url)) {
-                  await launchUrlString(url);
-                }
-              },
-            ),
-            const SizedBox(height: 48),
-            _button(
-              context: context,
-              title: 'Out App Webview',
-              onTap: () async {
-                if (await canLaunchUrlString(url)) {
-                  await launchUrlString(url,
-                      mode: LaunchMode.externalApplication);
-                }
-              },
-            ),
-          ],
-        ),
-      )),
-    );
-  }
 
-  GestureDetector _button({
-    required BuildContext context,
-    required String title,
-    required Function() onTap,
-  }) {
-    return GestureDetector(
-      onTap: onTap,
-      child: Container(
-          height: 60,
-          width: MediaQuery.of(context).size.width - 40,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: const Color.fromRGBO(135, 135, 135, 1),
-          ),
-          child: Center(
-              child: Text(
-            title,
-            style: const TextStyle(
-                color: Colors.white, fontWeight: FontWeight.bold, fontSize: 24),
-          ))),
+    Future<void> _autoLaunchUrl() async {
+      if (await canLaunchUrlString(url)) {
+        await launchUrlString(url);
+      }
+    }
+
+    return MaterialApp(
+      home: FutureBuilder<void>(
+        future: _autoLaunchUrl(),
+        builder: (BuildContext context, AsyncSnapshot<void> snapshot) {
+          if (snapshot.connectionState == ConnectionState.done) {
+            return Scaffold(
+              body: SizedBox(
+                height: MediaQuery.of(context).size.height,
+                width: MediaQuery.of(context).size.width,
+                child: const Center(
+                    child: Text(
+                        'URL launched successfully!')), // 이 메시지는 필요에 따라 변경하거나 제거할 수 있습니다.
+              ),
+            );
+          } else {
+            return const Scaffold(
+                body: Center(child: CircularProgressIndicator()));
+          }
+        },
+      ),
     );
   }
 }
