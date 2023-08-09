@@ -124,11 +124,11 @@ class LandingState extends State<Landing> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Text(
-                            "${animals[index].name} type: ${animals[index].type}",
+                            "이름: ${animals[index].name} 종류: ${animals[index].type}",
                             style: TextStyle(fontSize: 16),
                           ),
                           Text(
-                            "Age: ${animals[index].age}, Weight: ${animals[index].weight} kg",
+                            "나이: ${animals[index].age}, 몸무게: ${animals[index].weight} kg",
                             style: TextStyle(fontSize: 14),
                           ),
                         ],
