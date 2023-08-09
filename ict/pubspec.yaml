@@ -73,6 +73,7 @@ flutter:
     - assets/dog_image_url.jpg
     - assets/dog1.jpg
     - assets/dog2.jpg
+    - assets/logo.PNG
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

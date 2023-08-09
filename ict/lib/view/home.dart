@@ -27,12 +27,15 @@ class _homeState extends State<home> {
           },
           showSelectedLabels: false,
           showUnselectedLabels: false,
+          backgroundColor: Colors.white,
           items: [
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.home,
                 size: 30,
-                color: curIndex == 0 ? Colors.blue : Colors.black,
+                color: curIndex == 0
+                    ? const Color(0xffDAD0C2)
+                    : const Color(0xff1A120B),
               ),
               label: "Landing",
             ),
@@ -40,7 +43,9 @@ class _homeState extends State<home> {
               icon: Icon(
                 Icons.map,
                 size: 30,
-                color: curIndex == 1 ? Colors.blue : Colors.black,
+                color: curIndex == 1
+                    ? const Color(0xffDAD0C2)
+                    : const Color(0xff1A120B),
               ),
               label: "map",
             ),
@@ -48,7 +53,9 @@ class _homeState extends State<home> {
               icon: Icon(
                 Icons.api,
                 size: 30,
-                color: curIndex == 2 ? Colors.blue : Colors.black,
+                color: curIndex == 2
+                    ? const Color(0xffDAD0C2)
+                    : const Color(0xff1A120B),
               ),
               label: "label",
             ),
